@@ -1,0 +1,33 @@
+[00:00:01.191] Server  LOG      ✓ Ready in 847ms
+[00:00:04.569] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.091] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:36.287] Browser LOG     AgentCard clicked: {"content":"","hasContent":false,"name":"❓ Clarifier"}
+[00:00:38.346] Browser LOG     AgentCard clicked: {"content":"","hasContent":false,"name":"❓ Clarifier"}
+[00:01:56.005] Browser LOG     AgentCard clicked: {"content":"","hasContent":false,"name":"❓ Clarifier"}
+[00:02:17.537] Browser LOG     AgentCard clicked: {"content":"","hasContent":false,"name":"❓ Clarifier"}
+[00:02:17.756] Browser LOG     AgentCard clicked: {"content":"","hasContent":false,"name":"❓ Clarifier"}
+[00:03:48.448] Browser ERROR   Error: {}
+[00:04:18.674] Server  LOG      ✓ Compiled in 59ms
+[00:04:25.141] Server  LOG      ✓ Compiled in 46ms
+[00:04:36.752] Server  LOG      ✓ Compiled in 29ms
+[00:04:47.615] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:54.354] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:04:56.673] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:04:57.106] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:04:59.379] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:05:00.065] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:05:01.009] Browser LOG     AgentCard clicked: {"content":"**Відкриття запиту клієнта**\n\nКлієнт надіслав запит на створення SaaS для автоматизації фінансових з","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:01.678] Browser LOG     AgentCard clicked: {"content":"**Відкриття запиту клієнта**\n\nКлієнт надіслав запит на створення SaaS для автоматизації фінансових з","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:02.333] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:05:02.934] Browser LOG     AgentCard clicked: {"content":"Даних достатньо для аналізу","hasContent":true,"name":"❓ Clarifier"}
+[00:05:04.948] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:52.393] Browser LOG     AgentCard clicked: {"content":"**КРИТИЧНА Декомпозиція запиту клієнта**\n\n### 1. Основна ціль\n- Клієнт хоче створити платформу для о","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:53.159] Browser LOG     AgentCard clicked: {"content":"**КРИТИЧНА Декомпозиція запиту клієнта**\n\n### 1. Основна ціль\n- Клієнт хоче створити платформу для о","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:53.656] Browser LOG     AgentCard clicked: {"content":"**КРИТИЧНА Декомпозиція запиту клієнта**\n\n### 1. Основна ціль\n- Клієнт хоче створити платформу для о","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:54.908] Browser LOG     AgentCard clicked: {"content":"**КРИТИЧНА Декомпозиція запиту клієнта**\n\n### 1. Основна ціль\n- Клієнт хоче створити платформу для о","hasContent":true,"name":"🚀 Problem Framing"}
+[00:05:56.156] Browser LOG     AgentCard clicked: {"content":"### 🔬 Ключові гіпотези для перевірки\n\n| # | Гіпотеза | Impact | Невизначеність | Як перевірити |\n|-","hasContent":true,"name":"🔬 Hypothesis Analysis"}
+[00:05:56.973] Browser LOG     AgentCard clicked: {"content":"### 🔬 Ключові гіпотези для перевірки\n\n| # | Гіпотеза | Impact | Невизначеність | Як перевірити |\n|-","hasContent":true,"name":"🔬 Hypothesis Analysis"}
+[00:06:17.222] Browser LOG     AgentCard clicked: {"content":"Активовані агенти: market, competitors, finance, risks, frameworks","hasContent":true,"name":"🚦 Router"}
+[00:06:18.039] Browser LOG     AgentCard clicked: {"content":"Активовані агенти: market, competitors, finance, risks, frameworks","hasContent":true,"name":"🚦 Router"}
+[00:06:18.614] Browser LOG     AgentCard clicked: {"content":"Активовані агенти: market, competitors, finance, risks, frameworks","hasContent":true,"name":"🚦 Router"}
+[00:06:20.196] Browser LOG     AgentCard clicked: {"content":"Активовані агенти: market, competitors, finance, risks, frameworks","hasContent":true,"name":"🚦 Router"}

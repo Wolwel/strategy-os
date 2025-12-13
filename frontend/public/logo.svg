@@ -1,0 +1,20 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Strategy OS logo">
+  <g stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M64 22v24"/>
+    <path d="M64 46L32 64"/>
+    <path d="M64 46L96 64"/>
+    <path d="M32 64L32 92"/>
+    <path d="M96 64L96 92"/>
+    <path d="M64 46L64 92" opacity="0.55"/>
+    <path d="M32 92L50 106"/>
+    <path d="M96 92L78 106"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="64" cy="22" r="7"/>
+    <circle cx="64" cy="46" r="6"/>
+    <circle cx="32" cy="64" r="6"/>
+    <circle cx="96" cy="64" r="6"/>
+    <circle cx="50" cy="106" r="6"/>
+    <circle cx="78" cy="106" r="6"/>
+  </g>
+</svg>

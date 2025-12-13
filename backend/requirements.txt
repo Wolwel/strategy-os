@@ -1,0 +1,9 @@
+fastapi[standard]
+groq 
+pydantic-settings
+python-dotenv
+tavily-python
+sqlalchemy
+asyncpg
+openai
+anthropic
