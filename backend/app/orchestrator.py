@@ -31,20 +31,31 @@ def _env_flag(name: str, default: bool = False) -> bool:
 # SSE STREAMING VERSION (live updates для фронтенду)
 # ============================================================
 
-async def stream_strategy_pipeline(user_request: str, finance_inputs: dict | None = None, audience: str = "c-level", skip_clarification: bool = False):
+async def stream_strategy_pipeline(user_request: str, finance_inputs: dict | None = None, audience: str = "c-level", skip_clarification: bool = False, context: list[dict] | None = None):
     """
     Генератор для SSE - емітить події про прогрес кожного агента.
     skip_clarification=True якщо це follow-up запит (після уточнень)
+    context - попередні повідомлення для контексту розмови
     """
     results = {}
     results['_audience'] = audience  # Зберігаємо для output agent
+    results['_context'] = context or []  # Зберігаємо контекст
+    
+    # Формуємо enriched запит з контекстом
+    enriched_request = user_request
+    if context and len(context) > 0:
+        context_summary = "\n".join([
+            f"{'Користувач' if msg.get('role') == 'user' else 'Асистент'}: {msg.get('content', '')[:200]}"
+            for msg in context[-4:]  # Останні 4 повідомлення
+        ])
+        enriched_request = f"Попередній контекст розмови:\n{context_summary}\n\nПоточний запит: {user_request}"
 
     # 0. Clarification gate
     yield {"agent": "clarifier", "name": "❓ Clarifier", "status": "running"}
     if skip_clarification or _env_flag("SKIP_CLARIFICATION", default=False):
         clarification = {"needs_clarification": False, "questions": [], "notes": "skipped"}
     else:
-        clarification = await get_clarifying_questions(user_request)
+        clarification = await get_clarifying_questions(enriched_request)
     results["clarification"] = clarification
     if clarification.get("needs_clarification"):
         yield {"agent": "clarifier", "name": "❓ Clarifier", "status": "done", "preview": "Потрібні уточнення", "content": "Потрібні додаткові дані для аналізу"}
@@ -71,13 +82,13 @@ async def stream_strategy_pipeline(user_request: str, finance_inputs: dict | Non
     
     # 1. Problem Framing
     yield {"agent": "framing", "name": "🚀 Problem Framing", "status": "running"}
-    framing = await run_problem_framing(user_request)
+    framing = await run_problem_framing(enriched_request)
     results['framing'] = framing
     yield {"agent": "framing", "name": "🚀 Problem Framing", "status": "done", "preview": (framing[:150] + "...") if len(str(framing)) > 150 else framing, "content": framing}
     
     # 2. Hypothesis
     yield {"agent": "hypothesis", "name": "🔬 Hypothesis Analysis", "status": "running"}
-    hypotheses = await decompose_hypotheses(user_request, framing)
+    hypotheses = await decompose_hypotheses(enriched_request, framing)
     results['hypotheses'] = hypotheses
     results['hypotheses_report'] = format_hypotheses_for_report(hypotheses)
     hyp_count = len(hypotheses.get('hypotheses', [])) if isinstance(hypotheses, dict) else 0
@@ -85,7 +96,7 @@ async def stream_strategy_pipeline(user_request: str, finance_inputs: dict | Non
     
     # 3. Routing
     yield {"agent": "routing", "name": "🚦 Router", "status": "running"}
-    plan = await plan_execution(user_request, framing)
+    plan = await plan_execution(enriched_request, framing)
     if hypotheses.get("recommended_agents"):
         for agent in hypotheses["recommended_agents"]:
             if agent in ["market", "competitors", "finance", "risks", "frameworks"]:

@@ -46,6 +46,7 @@ class StreamRequestV2(BaseModel):
     finance_inputs: FinanceInputsModel | None = None
     audience: str = Field("c-level", description="Target audience: c-level, investor, ops")
     skip_clarification: bool = Field(False, description="Skip clarifier if this is a follow-up request")
+    context: list[dict] | None = Field(None, description="Previous conversation context")
 
 
 # Endpoint 1: Звичайний POST (чекає весь результат)
@@ -79,10 +80,11 @@ async def stream_strategy(request: StreamRequest | StreamRequestV2):
         finance_inputs = None
         audience = getattr(request, "audience", "c-level")
         skip_clarification = getattr(request, "skip_clarification", False)
+        context = getattr(request, "context", None) or []
         if hasattr(request, "finance_inputs") and getattr(request, "finance_inputs") is not None:
             finance_inputs = request.finance_inputs.model_dump()
 
-        async for event in stream_strategy_pipeline(query, finance_inputs=finance_inputs, audience=audience, skip_clarification=skip_clarification):
+        async for event in stream_strategy_pipeline(query, finance_inputs=finance_inputs, audience=audience, skip_clarification=skip_clarification, context=context):
             yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
     
     return StreamingResponse(

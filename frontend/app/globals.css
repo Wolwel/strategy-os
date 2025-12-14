@@ -1,6 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Hide Next.js dev tools button */
+#next-logo,
+[data-nextjs-dev-tools-button],
+[data-next-badge-root],
+[data-nextjs-toast],
+#devtools-indicator,
+.nextjs-toast {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -122,6 +135,22 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Moon glow animation */
+@keyframes moonGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-moon-glow {
+  animation: moonGlow 4s ease-in-out infinite;
 }
 
 /* Smooth transitions for interactive elements */
